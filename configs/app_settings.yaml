@@ -1,0 +1,12 @@
+board_detection:
+  gaussian_kernel: [5, 5]
+  canny_low: 50
+  canny_high: 60 #60
+  scale: 0.5
+  epsilon_factor: 2
+
+component_detection:
+  model_path: "models/pcb_detect_s1024_v2n-singleton.pt"
+  confidence: 0.6
+  image_size: 1024
+  scale: 0.5
