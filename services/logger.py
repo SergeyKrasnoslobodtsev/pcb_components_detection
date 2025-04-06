@@ -1,5 +1,6 @@
 import logging
 import logging.config
+from pathlib import Path
 import os
 from typing import Dict, Optional
 import yaml
@@ -77,9 +78,6 @@ class TestService():
         self.logger.warning("Тестовое сообщение WARNING")
         self.logger.error("Тестовое сообщение ERROR")
 
-
-
-from pathlib import Path
 
 def main():
     # Инициализация

@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Tuple
 
 import yaml
@@ -20,6 +19,7 @@ class ComponentDetectionConfig(BaseModel):
 
 
 class AppConfig(BaseModel):
+    _instance = None
     board_detection: BoardDetectionConfig
     component_detection: ComponentDetectionConfig
 
@@ -28,3 +28,9 @@ class AppConfig(BaseModel):
         with open(config_path, 'r') as file:
             config_data = yaml.safe_load(file)
         return cls(**config_data)
+    
+    @classmethod
+    def get_instance(cls): 
+        if cls._instance is None:
+            raise ValueError("AppConfig не инициализирован")
+        return cls._instance
